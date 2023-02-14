@@ -35,10 +35,22 @@ echo "I love $txt!
 </body>
 </html>";
 
+//⇒
 
-echo
-'
+require'helpers.php';
 
-'
+$items = ['a' => 1,'b' => 2,'c' => 3,'d' => 4,'e' => 5];
 
+prettyPrintArray(array_chunk($items,2,true));
+
+$array1 =['a','b','c'];
+$array2 =[5,10,15];
+
+prettyPrintArray(array_combine($array1,$array2));
+
+$array = [1,2,3,4,5,6,7,8,9,10];
+
+$event = array_filter($array, fn($number) => $number % 2 == 0);
+
+prettyPrintArray($event);
 ?>
