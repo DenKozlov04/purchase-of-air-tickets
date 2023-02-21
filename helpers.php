@@ -10,3 +10,4 @@ function prettyPrintArray(array $value)
     echo '</pre>';
 
 }
+?>

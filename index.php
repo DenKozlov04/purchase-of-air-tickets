@@ -1,7 +1,3 @@
-<?php
-$txt = 'PHP';
-echo "I love $txt!
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,46 +7,61 @@ echo "I love $txt!
 <body>
 <h2>Анкета</h2>
 <form action='input.php' method='POST'>
-<p>Введите имя:<br> 
-<input type='text' name='firstname' /></p>
-<form action1='input.php' method='POST1'>
-<p>Введите фамилию:<br>
-<input type='text' name='lastname' /></p>
-<form action2='input.php' method='POST2'>
-<p>Введите почту:<br>
-<input type='text' name='parol' /></p>
-<form action3='input.php' method='POST3'>
-<p>Введите пароль:<br>
-<input type='text' name='post' /></p>
-<p>Форма обучения: <br> 
-<input type='radio' name='eduform' value='очно' />очно <br>
-<input type='radio' name='eduform' value='заочно' />заочно </p>
-<p>Требуется общежитие:<br>
-<input type='checkbox' name='hostel' />Да</p>
-<input type='checkbox' name='hostel' />net</p>
+<div class ='search'>
+    <p>Enther your country<br> 
+    <div class = 'box1-input'>
+        <input type='text' name='country' placeholder='your country'/> </p>
+        <label for='box1'>From Where</label>
+        <form action1='input.php' method='POST1'>
+    </div>
+    <div class = 'box2'>
+        <p>Введите фамилию:<br>
+        <input type='text' name='lastname'placeholder='Where' /></p>
+        <form action2='input.php' method='POST2'>
+    </div>
+    <div class = 'box3'>
+        <p>Введите почту:<br>
+        <input type='text' name='parol'placeholder='Select departure date' /></p>
+        <form action3='input.php' method='POST3'>
+    </div>
+    <div class = 'box4'>
+        <p>Введите пароль:<br>
+        <input type='text' name='post' placeholder='Select return date' /></p>
+    </div>
+    <div class = 'box5'>
+        <br>Введите почту:<br>
+        <input type='text' name='parol'placeholder='number of passengers and class' /></p>
+        <form action4='input.php' method='POST4'>
+    </div>
+    <div class = 'box6'>
+        <button type='button'>Find tickets</button>
+        <form action5='input.php' method='POST5'>
+    </div>
+</div>
 <p>Краткий комментарий: <br>
 <textarea name='comment' maxlength='200'></textarea></p>
 <input type='submit' value='Отправить'>
 </form>
 </body>
-</html>";
+</html>
 
+<?php
 //⇒
 
-require'helpers.php';
+// require 'helpers.php';
 
-$items = ['a' => 1,'b' => 2,'c' => 3,'d' => 4,'e' => 5];
+// $items = ['a' => 1,'b' => 2,'c' => 3,'d' => 4,'e' => 5];
 
-prettyPrintArray(array_chunk($items,2,true));
+// prettyPrintArray(array_chunk($items,2,true));
 
-$array1 =['a','b','c'];
-$array2 =[5,10,15];
+// $array1 =['a','b','c'];
+// $array2 =[5,10,15];
 
-prettyPrintArray(array_combine($array1,$array2));
+// prettyPrintArray(array_combine($array1,$array2));
 
-$array = [1,2,3,4,5,6,7,8,9,10];
+// $array = [1,2,3,4,5,6,7,8,9,10];
 
-$event = array_filter($array, fn($number) => $number % 2 == 0);
+// $event = array_filter($array, fn($number) => $number % 2 == 0);
 
-prettyPrintArray($event);
-?>
+// prettyPrintArray($event);
+//  ?>
