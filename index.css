@@ -1,0 +1,109 @@
+nav {
+    width: 960px;
+    margin: 0 auto;
+    font-family: 'Nunito Sans', sans-serif;
+}
+nav::before{
+    content:'';
+    display: block;
+    height: 70px;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 50px;
+}
+/*обьекты по горизонтали*/
+ul li{
+    float:left;
+}
+
+ ul li a {
+    color: white;
+    display: block;
+    /* height: 50px; */
+    padding:0 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 50px;
+} 
+
+ul li a:hover {
+    background: red;
+}
+.search {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 800px;
+    justify-content: center;
+} 
+
+.pict1 {
+    position: relative;
+    display: flex;
+    float:left;
+    top: -5px;;
+    left: 10;
+}
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  font-family: 'Nunito Sans', sans-serif;
+}
+.LogIn:hover {
+    color: #f0094a;
+    background: transparent;
+     box-shadow:none;
+  }
+  .LogIn:before,
+  .LogIn:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #f0094a;
+    box-shadow:
+     -1px -1px 5px 0px #fff,
+     7px 7px 20px 0px #0003,
+     4px 4px 5px 0px #0002;
+    transition:400ms ease all;
+  }
+  .LogIn:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .LogIn:hover:before,
+  .LogIn:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+  .pict2{
+    right: 0%;
+    left: 0%;
+    bottom:0%;
+    top: 53px;
+    position: absolute;
+    display: block;
+    z-index: -1;
+
+  }
+
