@@ -1,8 +1,11 @@
+
+
 nav {
     width: 960px;
     margin: 0 auto;
     font-family: 'Nunito Sans', sans-serif;
 }
+
 nav::before{
     content:'';
     display: block;
@@ -105,5 +108,29 @@ ul li a:hover {
     display: block;
     z-index: -1;
 
+  }
+  .box1-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .box1-input label {
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .box1-input input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #282c34;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .box1-input input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   }
 

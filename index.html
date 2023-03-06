@@ -21,32 +21,32 @@
     
   </ul>
 </nav>
-<body>
+<body bgcolor="#F8F8F8">
 
  <div class ='search'>
 
     <div class = 'box1-input'>
-        <input type='text' name='country' placeholder='your country'/> </p>
-
-
-    </div>
-    <div class = 'box2'>
-
-        <input type='text' name='lastname'placeholder='Where' /></p>
+        <label for="input-field">Enther your country:</label>
+        <input type="text" id="input" name="input" placeholder='your country'> 
 
     </div>
-    <div class = 'box3'>
-
-        <input type='text' name='parol'placeholder='Select departure date' /></p>
+    <div class = 'box1-input'>
+        <label for="input-field">Choose country:</label>
+        <input type='text' name='lastname'placeholder='Where' >
 
     </div>
-    <div class = 'box4'>
+    <div class = 'box1-input'>
+        <label for="input-field">Set your date:</label>
+        <input type='text' name='parol'placeholder='Select departure date' >
 
-        <input type='text' name='post' placeholder='Select return date' /></p>
     </div>
-    <div class = 'box5'>
-
-        <input type='text' name='parol'placeholder='number of passengers and class' /></p>
+    <div class = 'box1-input'>
+        <label for="input-field">Set your date:</label>
+        <input type='text' name='post' placeholder='Select return date' >
+    </div>
+    <div class = 'box1-input'>
+        <label for="input-field">Select passenger number:</label>
+        <input type='text' name='parol'placeholder='number of passengers and class' >
  
     </div> 
     <div class ='pict2'>
@@ -54,7 +54,132 @@
     </div>
 
 </div>
+<div class="gallery-grid">
+  <div class="gallery-item">
+    <div class="grid-item__inner">
+      <img src="images\fdhfsdh.png" class="grid-item__img" width="400" height="400" >
+      <div class="place1">
+        <span>Riga -</span>
+      </div>
+      <div class="place2">
+        <span>Paris</span>
+      </div>
+      <div class="grid-item_title">
+        <div>
+            <span class="price">From 320€</span>
+        </div>
+        <button class="Buy">Buy tickets</button>
+      </div>
+    </div>
+  </div>
+</div>
+
  <style>
+
+  
+   .box1-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-family: 'Nunito Sans', sans-serif;
+  }
+  
+  .box1-input label {
+    color: #c0c0c0;
+    margin-bottom: 10px;
+  }
+  
+  .box1-input input[type="text"] {
+    padding: 10px;
+    border: none;
+    background-color: #000207;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .box1-input input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+
+  .gallery-grid{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .gallery-item{
+    margin: 15px 0;
+    padding: 0 15px;
+  }
+  .grid-item__inner{
+    position: relative;
+    display: flex;
+    cursor:pointer;
+  }
+   /* .grid-item__inner::before{
+    position: absolute;
+    left:0;
+    top:0;
+    width: 50%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: all.4s ease;
+    content: ''; 
+   }  */
+  .grid-item__inner:hover::before{
+    opacity: 1;
+
+  }
+  .grid-item__img{
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+
+  }
+  .grid-item_title{
+    position: absolute;
+    left: 7px;
+    bottom: 15px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #FFFFFF;
+    font-size: 20px;
+    overflow: hidden;
+  }
+  .grid-item_title > button{
+    display: block;
+    transform: translateY(45px);
+    transition: transform .4s ease;
+    background: #DE6A6A;
+    border-radius: 50px;
+    width: 420px;
+    height: 43px;
+    border:#DE6A6A;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+  }
+  .grid-item__inner:hover .grid-item_title > button{
+    transform: translateY(0);
+  }
+  .place1{
+    position: absolute;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #FFFFFF;
+    font-size: 36px;
+    top: 50%;
+    left: 7px;
+
+  }
+  .place2{
+    position: absolute;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #FFFFFF;
+    font-size: 50px;
+    top: 60%;
+    left: 7px;
+
+  }
 /* .collapsible {
     background-color: #777;
     color: white;
@@ -86,8 +211,7 @@
     justify-content: center;
 }  */
 </style>
-</head>
-<body>
+</body>
 
 <!-- <button class="collapsible">Select departure date</button>
 <div class="content">
@@ -180,9 +304,7 @@ body {font-family: Verdana, sans-serif;}
 @media screen and (max-width: 290px) {
   .weekdays li, .days li {width: 5.2%;}
 } -->
-</style>
-</head>
-<body>
+
 <!-- <div class="month">      
   <ul>
     <li class="prev">&#10094;</li>
@@ -253,8 +375,5 @@ for (i = 0; i < coll.length; i++) {
     });
 }
 </script> -->
-
-
-</body>
 </html>
 
