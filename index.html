@@ -66,14 +66,45 @@
       </div>
       <div class="grid-item_title">
         <div>
-            <span class="price">From 55€</span>
+            <span class="price">From 55⁰⁰€</span>
+        </div>
+        <button class="Buy">Buy tickets</button>
+      </div>
+    </div>      
+</div>
+  <div class="gallery-item">
+    <div class="grid-item__inner">
+      <img src="images\пвыпыфвп.png" class="grid-item__img" width="400" height="400" >
+      <div class="place1">
+        <span>Riga -</span>
+      </div>
+      <div class="place2">
+        <span>Dubai</span>
+      </div>
+      <div class="grid-item_title">
+        <div>
+            <span class="price">From 120⁰⁰€</span>
         </div>
         <button class="Buy">Buy tickets</button>
       </div>
     </div>
-  </div>
 </div>
-
+<div class="gallery-item">
+  <div class="grid-item__inner">
+    <img src="images\dsgdsg.png" class="grid-item__img" width="400" height="400" >
+    <div class="place1">
+      <span>Riga -</span>
+    </div>
+    <div class="place3">
+      <span >Sharm el-Sheikh</span>
+    </div>
+    <div class="grid-item_title">
+      <div>
+          <span class="price">From 55€</span>
+      </div>
+      <button class="Buy">Buy tickets</button>
+    </div>
+  </div>      
  <style>
 
   
@@ -108,9 +139,14 @@
     max-width: 1140px;
     margin: 0 auto;
   }
+   .gallery-grid,
+  .gallery-grid * {
+    box-sizing: border-box;
+  } 
   .gallery-item{
+    width: 33.33%; 
     margin: 15px 0;
-    padding: 0 15px;
+    padding: 0 40px; 
   }
   .grid-item__inner{
     position: relative;
@@ -133,8 +169,8 @@
 
   }
   .grid-item__img{
-    width: 50%;
-    height: 50%;
+    width: 120%;
+    height: 120%;
     object-fit: cover;
 
   }
@@ -153,7 +189,7 @@
     transition: transform .4s ease;
     background: #DE6A6A;
     border-radius: 50px;
-    width: 420px;
+    width: 350px;
     height: 43px;
     border:#DE6A6A;
     color: rgb(255, 255, 255);
@@ -167,7 +203,7 @@
     font-family: 'Nunito Sans', sans-serif;
     color: #FFFFFF;
     font-size: 36px;
-    top: 50%;
+    top: 45%;
     left: 7px;
 
   }
@@ -176,9 +212,17 @@
     font-family: 'Nunito Sans', sans-serif;
     color: #FFFFFF;
     font-size: 50px;
-    top: 60%;
+    top: 55%;
     left: 7px;
 
+  }
+  .place3{
+    position: absolute;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #FFFFFF;
+    font-size: 38px;
+    top: 55%;
+    left: 7px;
   }
 /* .collapsible {
     background-color: #777;
