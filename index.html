@@ -12,10 +12,10 @@
 </div>
 <nav>
   <ul>
-    <li><a href="">1</li>
-    <li><a href="">gtreg</li>
-    <li><a href="">regegreg</li>
-    <li><a href="">gregerg</li>
+    <li><a href="">1</a></li>
+    <li><a href="">gtreg</a></li>
+    <li><a href="">regegreg</a></li>
+    <li><a href="">gregerg</a></li>
     <button class="custom-btn LogIn">LOG IN</button>
     <button class="custom-btn LogIn">SING UP</button>
     
@@ -25,29 +25,35 @@
 
  <div class ='search'>
 
-    <div class = 'box1-input'>
+    <div class = 'box1-input'style="border-radius: 50px 0 0 50px;">
+      <div class = 'input-data'>
+        <input type="text" id="input" name="input" > 
         <label for="input-field">Enther your country:</label>
-        <input type="text" id="input" name="input" placeholder='your country'> 
-
+      </div>
     </div>
     <div class = 'box1-input'>
+      <div class = 'input-data'>
+        <input type='text' name='lastname' >
         <label for="input-field">Choose country:</label>
-        <input type='text' name='lastname'placeholder='Where' >
-
+      </div>  
     </div>
     <div class = 'box1-input'>
+      <div class = 'input-data'>
+        <input type='text' name='parol' >
         <label for="input-field">Set your date:</label>
-        <input type='text' name='parol'placeholder='Select departure date' >
-
+      </div>  
     </div>
     <div class = 'box1-input'>
+      <div class = 'input-data'>
+        <input type='text' name='post'  >
         <label for="input-field">Set your date:</label>
-        <input type='text' name='post' placeholder='Select return date' >
+      </div>
     </div>
-    <div class = 'box1-input'>
+    <div class = 'box1-input' style="border-radius: 0 50px 50px 0;">
+      <div class = 'input-data'>
+        <input type='text' name='parol' >
         <label for="input-field">Select passenger number:</label>
-        <input type='text' name='parol'placeholder='number of passengers and class' >
- 
+      </div>
     </div> 
     <div class ='pict2'>
       <p><img src="images\pln1.jpg"  width="1920" height="700" left = "10"  ></p>
@@ -70,7 +76,24 @@
         </div>
         <button class="Buy">Buy tickets</button>
       </div>
-    </div>      
+    </div>
+
+    <div class="grid-item__inner1">
+      <img src="images\image.png" class="grid-item__img" width="400" height="400" >
+      <div class="place1">
+        <span>Riga -</span>
+      </div>
+      <div class="place2">
+        <span >Tokio</span>
+      </div>
+      <div class="grid-item_title">
+        <div>
+            <span class="price">From 55⁰⁰€</span>
+        </div>
+        <button class="Buy">Buy tickets</button>
+      </div>
+    </div> 
+
 </div>
   <div class="gallery-item">
     <div class="grid-item__inner">
@@ -88,7 +111,25 @@
         <button class="Buy">Buy tickets</button>
       </div>
     </div>
+
+    <div class="grid-item__inner1">
+      <img src="images\reikjavik.png" class="grid-item__img" width="400" height="400" >
+      <div class="place1">
+        <span>Riga -</span>
+      </div>
+      <div class="place2">
+        <span >Reykjavik</span>
+      </div>
+      <div class="grid-item_title">
+        <div>
+            <span class="price">From 100⁰⁰€</span>
+        </div>
+        <button class="Buy">Buy tickets</button>
+      </div>
+    </div> 
+
 </div>
+
 <div class="gallery-item">
   <div class="grid-item__inner">
     <img src="images\dsgdsg.png" class="grid-item__img" width="400" height="400" >
@@ -100,38 +141,78 @@
     </div>
     <div class="grid-item_title">
       <div>
-          <span class="price">From 55€</span>
+          <span class="price">From 75⁰⁰€</span>
       </div>
       <button class="Buy">Buy tickets</button>
     </div>
-  </div>      
- <style>
+  </div> 
 
+  <div class="grid-item__inner1">
+    <img src="images\afini.png" class="grid-item__img" width="400" height="400" >
+    <div class="place1">
+      <span>Riga -</span>
+    </div>
+    <div class="place2">
+      <span >Athens</span>
+    </div>
+    <div class="grid-item_title">
+      <div>
+          <span class="price">From 65⁰⁰€</span>
+      </div>
+      <button class="Buy">Buy tickets</button>
+    </div>
+  </div>  
+ <style>
+ .search {
+    justify-content: space-between;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 900px;
+    justify-content: center;
+}  
   
-   .box1-input {
+    .box1-input {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    width: 250px;
+    height: 25px;
     font-family: 'Nunito Sans', sans-serif;
+    padding: 30px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .box1-input label {
     color: #c0c0c0;
-    margin-bottom: 10px;
+    left:0;
+    pointer-events: none;
   }
-  
+  .box1-input .input-data{
+    height: 50%;
+    width: 100%;
+  }
+  .box1-input .input-data input{
+    height: 100%;
+    width: 100%;
+  }
   .box1-input input[type="text"] {
-    padding: 10px;
     border: none;
-    background-color: #000207;
-    color: #fff;
+    background-color: #ffffff;
+    color: rgba(87, 17, 17, 0.671);
     font-size: 16px;
-  }
+    border-radius: 0px; 
+    border:none; 
+    border-bottom: 2px solid silver;
+    
+  } 
   
-  .box1-input input[type="text"]:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-  }
+  /* .box1-input input[type="text"]:focus {
+
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }  */
 
   .gallery-grid{
     display: flex;
@@ -153,17 +234,6 @@
     display: flex;
     cursor:pointer;
   }
-   /* .grid-item__inner::before{
-    position: absolute;
-    left:0;
-    top:0;
-    width: 50%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    opacity: 0;
-    transition: all.4s ease;
-    content: ''; 
-   }  */
   .grid-item__inner:hover::before{
     opacity: 1;
 
@@ -221,39 +291,24 @@
     font-family: 'Nunito Sans', sans-serif;
     color: #FFFFFF;
     font-size: 38px;
-    top: 55%;
+    top: 58%;
     left: 7px;
   }
-/* .collapsible {
-    background-color: #777;
-    color: white;
-    cursor: pointer;
-    padding: 18px;
-    width: 10%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-}
 
-.active, .collapsible:hover {
-    background-color: #555;
-}
-
-.content {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-
-} */
-
-/* .search {
+  .grid-item__inner1{
+    top: 20px;
+    position: relative;
     display: flex;
-    align-items: center;
-    flex-direction: row;
-    height: 800px;
-    justify-content: center;
-}  */
+    cursor:pointer;
+  }
+  .grid-item__inner1:hover::before{
+    opacity: 1;
+
+  }
+  .grid-item__inner1:hover .grid-item_title > button{
+    transform: translateY(0);
+  }
+
 </style>
 </body>
 
