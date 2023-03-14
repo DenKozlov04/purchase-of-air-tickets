@@ -1,7 +1,7 @@
 
 
 nav {
-    width: 960px;
+    width: 6000%;
     margin: 0 auto;
     font-family: 'Nunito Sans', sans-serif;
 }
@@ -9,7 +9,7 @@ nav {
 nav::before{
     content:'';
     display: block;
-    height: 70px;
+    height: 437.5%;
     width: 100%;
     background-color: black;
     position: absolute;
@@ -21,7 +21,7 @@ ul{
     margin: 0;
     padding: 0;
     list-style: none;
-    height: 50px;
+    height: 312.5%;
 }
 /*обьекты по горизонтали*/
 ul li{
@@ -32,10 +32,10 @@ ul li{
     color: white;
     display: block;
     /* height: 50px; */
-    padding:0 30px;
+    padding:0 187.5%;
     text-transform: uppercase;
     text-decoration: none;
-    line-height: 50px;
+    line-height: 312.5%;
 } 
 
 ul li a:hover {
