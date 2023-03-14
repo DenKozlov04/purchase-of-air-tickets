@@ -27,7 +27,7 @@
 
     <div class = 'box1-input'style="border-radius: 50px 0 0 50px;">
       <div class = 'input-data'>
-        <input type="text" id="input" name="input" > 
+        <input type="text" id="input" name="input" placeholder=""> 
         <label for="input-field">Enther your country:</label>
       </div>
     </div>
@@ -55,8 +55,10 @@
         <label for="input-field">Select passenger number:</label>
       </div>
     </div> 
+    
     <div class ='pict2'>
       <p><img src="images\pln1.jpg"  width="1920" height="700" left = "10"  ></p>
+      <div class ='RectangleSales'width="1920" height="100" left = "10"></div>
     </div>
 
 </div>
@@ -163,6 +165,13 @@
     </div>
   </div>  
  <style>
+ .pict2{
+    justify-content: center;
+    position: absolute;
+    display: flex;
+    z-index: -1;
+
+  }
  .search {
     justify-content: space-between;
     justify-content: space-evenly;
@@ -197,6 +206,11 @@
   .box1-input .input-data input{
     height: 100%;
     width: 100%;
+
+  }
+  .box1-input .input-data label{
+    bottom: 20px;
+
   }
   .box1-input input[type="text"] {
     border: none;
@@ -308,7 +322,16 @@
   .grid-item__inner1:hover .grid-item_title > button{
     transform: translateY(0);
   }
-
+.RectangleSales{
+  top: 710px;
+  width: 1920px;
+  height: 100px;
+  justify-content: center;
+  position: absolute;
+  display: flex;
+  z-index: -1;
+  background-color: #DE6A6A;
+}
 </style>
 </body>
 

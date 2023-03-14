@@ -100,16 +100,6 @@ ul li a:hover {
     width:100%;
     transition:800ms ease all;
   }
-  .pict2{
-    right: 0%;
-    left: 0%;
-    bottom:0%;
-    top: 53px;
-    position: absolute;
-    display: block;
-    z-index: -1;
-
-  }
   /* .box1-input {
     background-color: #ffffff;
     display: flex;
