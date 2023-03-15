@@ -11,15 +11,15 @@
   <p><img src="images\thtrhrth.png"  width="60" height="30"></p>
 </div>
 <nav>
-  <ul>
+  <ul >
     <li><a href="">1</a></li>
     <li><a href="">gtreg</a></li>
     <li><a href="">regegreg</a></li>
     <li><a href="">gregerg</a></li>
     <button class="custom-btn LogIn">LOG IN</button>
     <button class="custom-btn LogIn">SING UP</button>
-    
   </ul>
+  <div class ='RectangleSales'width="1920" height="100"></div>
 </nav>
 <body bgcolor="#F8F8F8">
 
@@ -55,10 +55,8 @@
         <label for="input-field">Select passenger number:</label>
       </div>
     </div> 
-    
     <div class ='pict2'>
       <p><img src="images\pln1.jpg"  width="1920" height="700" left = "10"  ></p>
-      <div class ='RectangleSales'width="1920" height="100" left = "10"></div>
     </div>
 
 </div>
@@ -165,13 +163,17 @@
     </div>
   </div>  
  <style>
+  
  .pict2{
-    justify-content: center;
-    position: absolute;
     display: flex;
-    z-index: -1;
+    flex-wrap: wrap;
+    max-width: 1920px;
+    top: 120px;
+    margin: 0 auto;
+    z-index: -3;
+    box-sizing: border-box;
+  } 
 
-  }
  .search {
     justify-content: space-between;
     justify-content: space-evenly;
@@ -233,6 +235,7 @@
     flex-wrap: wrap;
     max-width: 1140px;
     margin: 0 auto;
+    z-index: 1;
   }
    .gallery-grid,
   .gallery-grid * {
@@ -326,11 +329,12 @@
   top: 710px;
   width: 1920px;
   height: 100px;
-  justify-content: center;
+  left: 500px;
   position: absolute;
-  display: flex;
   z-index: -1;
+  right: 700px;
   background-color: #DE6A6A;
+  margin: 0 auto;
 }
 </style>
 </body>

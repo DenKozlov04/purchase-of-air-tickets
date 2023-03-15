@@ -2,15 +2,21 @@
 
 nav {
     width: 6000%;
+    max-width: 1920px;
     margin: 0 auto;
     font-family: 'Nunito Sans', sans-serif;
+    position: relative;
+    right: 10px;
+    bottom: 10px;
 }
 
 nav::before{
+  
     content:'';
     display: block;
-    height: 437.5%;
-    width: 100%;
+    max-width: 1920px;
+    height: 200%;
+    width: 200%;
     background-color: black;
     position: absolute;
     top: 0;
@@ -41,14 +47,14 @@ ul li{
 ul li a:hover {
     background: red;
 }
- .search {
+ /* .search {
     justify-content: space-between;
     display: flex;
     align-items: center;
     flex-direction: row;
     height: 900px;
     justify-content: center;
-}  
+}   */
 
 .pict1 {
     position: relative;
