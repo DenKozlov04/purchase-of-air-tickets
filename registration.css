@@ -1,16 +1,16 @@
 .registration{
-
     position: relative;
     z-index: 1;
     background: #FFFFFF;
     max-width: 360px;
     margin: 0 auto 100px;
     padding: 45px;
+    top: 120px; 
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .registration input {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -21,7 +21,7 @@
   font-size: 14px;
 }
 .registration button{
-  font-family: "Roboto", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #4CAF50;
@@ -37,11 +37,21 @@
 .registration button:hover,.registration button:active,.registration button:focus {
     background: #43A047;
   }
-  .curort{
-    z-index: -1;
-    width: 100%;
-    max-width: 1920px;
-    height: 100%;
-    max-height:1080px;
-
+  div.curort{
+  position: fixed;
+  top: -15%;
+  left: -1%;
+  width: 200%;
+  height: 200%;
 }
+img.curort{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}
+
