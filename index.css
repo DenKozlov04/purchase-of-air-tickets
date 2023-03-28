@@ -38,7 +38,7 @@ ul li{
     color: white;
     display: block;
     /* height: 50px; */
-    padding:0 187.5%;
+    padding:0 200px;
     text-transform: uppercase;
     text-decoration: none;
     line-height: 312.5%;
@@ -61,10 +61,10 @@ ul li a:hover {
     display: flex;
     float:left;
     top: -5px;;
-    left: 10;
+    left: 8;
 }
 
-.custom-btn {
+ .custom-btn {
   width: 130px;
   height: 40px;
   color: #fff;
@@ -105,7 +105,7 @@ ul li a:hover {
   .LogIn:hover:after{
     width:100%;
     transition:800ms ease all;
-  }
+  } 
   /* .box1-input {
     background-color: #ffffff;
     display: flex;
