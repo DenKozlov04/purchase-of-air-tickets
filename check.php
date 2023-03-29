@@ -25,7 +25,7 @@ else if(mb_strlen($con_password) <8 || mb_strlen($con_password) > 32){
     exit();
 }
 
-$mysql = new mysqli('127.0.0.1','root','root','air_flights_database');
+$mysql = new mysqli('localhost','root','','air_flights_database');
 
 $mysql->query("INSERT INTO`users`(`username,email` ,`password` ,`phone` ,`created_at`) 
 VALUES('$login','$email','$phone','$con_password')");
