@@ -8,6 +8,7 @@ nav {
     position: relative;
     right: 10px;
     bottom: 10px;
+    
 }
 
 nav::before{
@@ -17,7 +18,6 @@ nav::before{
     max-width: 1920px;
     height: 200%;
     width: 200%;
-    background-color: black;
     position: absolute;
     top: 0;
     left: 0;
