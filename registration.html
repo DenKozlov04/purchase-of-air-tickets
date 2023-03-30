@@ -12,9 +12,9 @@
   <div class ='curort' >
     <p><img src="images\Beautiful-tropical-sea-bungalows-resort_1920x1080.jpg"></p>
   </div>
-<form action="check.php" method="post"></form>
+<form action="/check.php" method="post"></form>
     <div class ='registration'>
-      <form action="check.php" method="post">
+      <form action="/check.php" method="post">
         <div class = 'username'>
           <div class = 'input-username'>
             <input type="text" id="input" name="username" placeholder="Write your username"> 
@@ -47,9 +47,28 @@
                 <div class = 'input-create-profile'>
                     <button type="text" id="input" name="input" placeholder=""> SING UP</button>
                 </div>
+            <div class = ''>
+                <div class = 'not_registred'>
+                    <p class="message">Do you have an account?<a href="autorization.html">Sign in account</a></p>
+                </div>
           </div>
         </form>
     </div>
 </div>
 </body>
+<style>
+
+.registration .message {
+  font-size: 15px;
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 15px 0 0;
+  color: #b3b3b3;
+}
+.registration .message a {
+  font-size: 15x;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #4CAF50;
+  text-decoration: none;
+}
+</style>
 </html>

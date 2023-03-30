@@ -1,4 +1,4 @@
-.registration{
+.autorization{
     position: relative;
     z-index: 1;
     background: #FFFFFF;
@@ -9,7 +9,7 @@
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.registration input {
+.autorization input {
   font-family: 'Nunito Sans', sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -20,7 +20,7 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-.registration button{
+.autorization button{
   font-family: 'Nunito Sans', sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -34,7 +34,7 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.registration button:hover,.registration button:active,.registration button:focus {
+.autorization button:hover,.autorization button:active,.autorization button:focus {
     background: #43A047;
   }
   div.curort{
@@ -54,3 +54,16 @@ img.curort{
   min-width: 50%;
   min-height: 50%;
 }
+.autorization .message {
+    font-size: 15px;
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 15px 0 0;
+    color: #b3b3b3;
+  }
+  .autorization .message a {
+    font-size: 15x;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #4CAF50;
+    text-decoration: none;
+  }
+
