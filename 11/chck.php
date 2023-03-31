@@ -6,41 +6,44 @@ $phone = filter_var(trim($_POST['phone']),FILTER_SANITIZE_STRING);
 $con_password = filter_var(trim($_POST['con-password']),FILTER_SANITIZE_STRING);
 
 if(mb_strlen($login) <5 || mb_strlen($login) > 90){//если длинна переменной логина меньше чем 5 или длинна логина больше 90 то выводим "ошибку"
-    // header('Location: registration.html');
+    //  header('Location: registration.html');
     // echo '<script>alert("Incorect username length")</script>';
-    echo "Incorect username length";
+    // echo "Incorect username length";
+    echo "<script>alert(\"Incorect username length\");</script>";
     exit();
 }
 
 else if(mb_strlen($email) <2 || mb_strlen($email) > 90){
     // header('Location: registration.html');
-    echo "Incorect email length";
+    echo "<script>alert(\"Incorect email length\");</script>";
     exit();
 }
 
 else if(mb_strlen($phone) <12 || mb_strlen($phone) > 12){
     // header('Location: registration.html');
-    echo "Incorect phone length";
+    // echo "Incorect phone length";
+    echo "<script>alert(\"Incorect phone length\");</script>";
     exit();
 }
 
 else if(mb_strlen($con_password) <8 || mb_strlen($con_password) > 32){
     // header('Location: registration.html');
-    echo "Incorect password length (from 8 to 32 symbols)";
+    // echo "Incorect password length (from 8 to 32 symbols)";
+    echo "<script>alert(\"Incorect password length (from 8 to 32 symbols)\");</script>";
     exit();
-}//else {
+}else {
     $con_password = md5($con_password."356ads34749ad9s");
     // хеширование пароля и дополнительное усложнение
 
-    $mysql = new mysqli('localhost','root','','airflightsbd');
+    $mysql = new mysqli('localhost','root','','airflightsdatabase');
 
     $mysql->query("INSERT INTO `users` (`username`, `email`, `phone` ,`password`, `created_at`) 
     VALUES('$login', '$email', '$phone', '$con_password', now() )");
 
     $mysql->close();
 
-    // header('Location: index.html');
-// }
+    //  header('Location: index.html');
+ }
 
 
 ?>
