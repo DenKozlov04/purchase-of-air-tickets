@@ -1,4 +1,5 @@
 <?php
+
 $login = filter_var(trim($_POST['username']),FILTER_SANITIZE_STRING);
 // Удаляем пробелы и HTML символы  
 $email = filter_var(trim($_POST['email']),FILTER_SANITIZE_STRING);
@@ -42,7 +43,7 @@ else if(mb_strlen($con_password) <8 || mb_strlen($con_password) > 32){
 
     $mysql->close();
 
-     header('Location: /');
+     header('Location:YouAreRegistred.html');
  }
 
 
