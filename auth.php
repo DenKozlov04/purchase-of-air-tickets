@@ -1,9 +1,9 @@
 <?php
 
-$login = filter_var(trim($_POST['username']),FILTER_SANITIZE_STRING);
-$con_password = filter_var(trim($_POST['password']),FILTER_SANITIZE_STRING);
+$login = htmlspecialchars(filter_var(trim($_POST['username'])),FILTER_SANITIZE_STRING);
+$con_password = htmlspecialchars(filter_var(trim($_POST['password'])),FILTER_SANITIZE_STRING);
 
-    $con_password = md5($con_password."356ads34749ad9s");
+    $con_password = htmlspecialchars(md5($con_password."356ads34749ad9s"));
     // хеширование пароля и дополнительное усложнение
 
     $mysql = new mysqli('localhost','root','','airflightsdatabase');
@@ -22,7 +22,7 @@ $con_password = filter_var(trim($_POST['password']),FILTER_SANITIZE_STRING);
 
     $mysql->close();
 
-    header('Location: index.html');
+    header('Location:index.html');
 
     exit();
 

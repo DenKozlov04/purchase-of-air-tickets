@@ -1,10 +1,10 @@
 <?php
 
-$login = filter_var(trim($_POST['username']),FILTER_SANITIZE_STRING);
+$login = htmlspecialchars(filter_var(trim($_POST['username']),FILTER_SANITIZE_STRING));
 // Удаляем пробелы и HTML символы  
-$email = filter_var(trim($_POST['email']),FILTER_SANITIZE_STRING);
-$phone = filter_var(trim($_POST['phone']),FILTER_SANITIZE_STRING);
-$con_password = filter_var(trim($_POST['con-password']),FILTER_SANITIZE_STRING);
+$email = htmlspecialchars(filter_var(trim($_POST['email']),FILTER_SANITIZE_STRING));
+$phone = htmlspecialchars(filter_var(trim($_POST['phone']),FILTER_SANITIZE_STRING));
+$con_password = htmlspecialchars(filter_var(trim($_POST['con-password']),FILTER_SANITIZE_STRING));
 
 if(mb_strlen($login) <5 || mb_strlen($login) > 90){//если длинна переменной логина меньше чем 5 или длинна логина больше 90 то выводим "ошибку"
     //  header('Location: registration.html');
@@ -43,7 +43,7 @@ else if(mb_strlen($con_password) <8 || mb_strlen($con_password) > 32){
 
     $mysql->close();
 
-     header('Location:YouAreRegistred.html');
+     header('Location:../index.html');
  }
 
 
