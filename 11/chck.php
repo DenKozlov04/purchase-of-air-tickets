@@ -43,7 +43,7 @@ else if(mb_strlen($con_password) <8 || mb_strlen($con_password) > 32){
 
     $mysql->close();
 
-     header('Location:YouAreRegistred.html');
+     header('Location:../index.html');
  }
 
 
