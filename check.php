@@ -29,7 +29,7 @@ else if(mb_strlen($con_password) <8 || mb_strlen($con_password) > 32){
     echo "Incorect password length (from 8 to 32 symbols)";
     exit();
 }//else {
-    $con_password = md5($con_password."356ads34749ad9s");
+    $con_password = password_hash($con_password, PASSWORD_DEFAULT);
     // хеширование пароля и дополнительное усложнение
 
     $mysql = new mysqli('localhost','root','','airflightsbd');
