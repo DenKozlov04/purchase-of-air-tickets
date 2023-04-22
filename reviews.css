@@ -1,0 +1,55 @@
+.comments-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.comment {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.comment h3 {
+    margin: 0 0 5px;
+}
+
+.comment small {
+    color: #888;
+}
+
+/* Стили для формы добавления комментариев */
+.comment-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.comment-form textarea {
+    height: 150px;
+}
+
+.comment-form button[type="submit"] {
+    background-color: #4CAF50;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.comment-form button[type="submit"]:hover {
+    background-color: #3e8e41;
+}
