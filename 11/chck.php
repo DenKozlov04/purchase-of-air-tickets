@@ -1,51 +1,59 @@
 <?php
 
+
 $login = htmlspecialchars(filter_var(trim($_POST['username']),FILTER_SANITIZE_STRING));
-// Удаляем пробелы и HTML символы  
 $email = htmlspecialchars(filter_var(trim($_POST['email']),FILTER_SANITIZE_STRING));
 $phone = htmlspecialchars(filter_var(trim($_POST['phone']),FILTER_SANITIZE_STRING));
 $con_password = htmlspecialchars(filter_var(trim($_POST['con-password']),FILTER_SANITIZE_STRING));
 
-if(mb_strlen($login) <5 || mb_strlen($login) > 90){//если длинна переменной логина меньше чем 5 или длинна логина больше 90 то выводим "ошибку"
-    //  header('Location: registration.html');
-    // echo '<script>alert("Incorect username length")</script>';
-    // echo "Incorect username length";
-    echo "<script>alert(\"Incorect username length\");</script>";
+if(mb_strlen($login) <5 || mb_strlen($login) > 90){
+    echo "<script>alert(\"Incorrect username length\");</script>";
     exit();
-}
-
-else if(mb_strlen($email) <2 || mb_strlen($email) > 90){
-    // header('Location: registration.html');
-    echo "<script>alert(\"Incorect email length\");</script>";
+} else if(mb_strlen($email) <2 || mb_strlen($email) > 90){
+    echo "<script>alert(\"Incorrect email length\");</script>";
     exit();
-}
-
-else if(mb_strlen($phone) <12 || mb_strlen($phone) > 12){
-    // header('Location: registration.html');
-    // echo "Incorect phone length";
-    echo "<script>alert(\"Incorect phone length\");</script>";
+} else if(mb_strlen($phone) <12 || mb_strlen($phone) > 12){
+    echo "<script>alert(\"Incorrect phone length\");</script>";
     exit();
-}
-
-else if(mb_strlen($con_password) <8 || mb_strlen($con_password) > 32){
-    // header('Location: registration.html');
-    // echo "Incorect password length (from 8 to 32 symbols)";
-    echo "<script>alert(\"Incorect password length (from 8 to 32 symbols)\");</script>";
+} else if(mb_strlen($con_password) <8 || mb_strlen($con_password) > 32){
+    echo "<script>alert(\"Incorrect password length (from 8 to 32 symbols)\");</script>";
     exit();
-}else {
+} else {
+    // Хэшируем пароль и добавляем к нему дополнительный ключ
     $con_password = md5($con_password."356ads34749ad9s");
-    // хеширование пароля и дополнительное усложнение
 
+    // Подключаемся к базе данных
     $mysql = new mysqli('localhost','root','','airflightsdatabase');
 
-    $mysql->query("INSERT INTO `users` (`username`, `email`, `phone` ,`password`, `created_at`) 
-    VALUES('$login', '$email', '$phone', '$con_password', now() )");
+    // Проверяем, существует ли уже пользователь с таким же именем
+    $result = $mysql->query("SELECT user_id FROM users WHERE username='$login'");
+    if($result->num_rows>0){
+        echo "<script>alert(\"This username already exists\");</script>";
+        exit();
+    }
 
+    // Проверяем, существует ли уже пользователь с таким же email
+    $result = $mysql->query("SELECT user_id FROM users WHERE email='$email'");
+    if($result->num_rows>0){
+        echo "<script>alert(\"This email already exists\");</script>";
+        exit();
+    }
+
+    // Проверяем, существует ли уже пользователь с таким же телефоном
+    $result = $mysql->query("SELECT user_id FROM users WHERE phone='$phone'");
+    if($result->num_rows>0){
+        echo "<script>alert(\"This phone already exists\");</script>";
+        exit();
+    }
+
+    // Добавляем пользователя в базу данных
+    $mysql->query("INSERT INTO `users` (`username`, `email`, `phone`, `password`, `created_at`) 
+        VALUES('$login', '$email', '$phone', '$con_password', now() )");
+
+    // Закрываем соединение с базой данных
     $mysql->close();
 
-     header('Location:../index.html');
- }
+    // Перенаправляем пользователя на страницу авторизации
+    header('Location:../index.html');
+}
 
-
-?>
-<!-- !!!!НУЖНО ОБЕЗОПАСИТЬ!!!! -->
