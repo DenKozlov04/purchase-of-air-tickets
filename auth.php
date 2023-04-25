@@ -6,8 +6,16 @@ session_start();
 if (isset($_POST['login'])) {
     // Получаем данные из формы входа
     $username = $_POST['username'];
-    $con_password = $_POST['password'];
-    $con_password = md5($con_password."356ads34749ad9s");
+    $password = $_POST['password'];
+    $con_password = md5($password."356ads34749ad9s");
+    
+    // Проверяем, является ли пользователь администратором
+    if ($username === 'admin' && $password === 'Admin292020') {
+        // Если пользователь является администратором, то перенаправляем его на страницу регистрации
+        header("Location: registration.html");
+        exit();
+    }
+    
     // Подключаемся к базе данных
     $servername = "localhost";
     $dbusername = "root";
@@ -21,7 +29,7 @@ if (isset($_POST['login'])) {
     }
 
     // Получаем данные пользователя из базы данных
-    $sql = $sql = "SELECT * FROM users WHERE username='$username' AND password='$con_password'";
+    $sql = "SELECT * FROM users WHERE username='$username' AND password='$con_password'";
     $result = mysqli_query($conn, $sql);
 
     // Проверяем, удалось ли получить данные пользователя из базы данных
@@ -35,6 +43,7 @@ if (isset($_POST['login'])) {
             $_SESSION['id'] = $row['id'];
             // Перенаправляем пользователя на защищенную страницу
             header("Location: index.html");
+            exit();
         } else {
             // Если пароль не совпадает, то выводим ошибку
             echo "Invalid username or password";
@@ -47,4 +56,5 @@ if (isset($_POST['login'])) {
     // Закрываем соединение с базой данных
     mysqli_close($conn);
 }
+
 ?>
