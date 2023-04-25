@@ -12,8 +12,9 @@ if (isset($_POST['login'])) {
     // Проверяем, является ли пользователь администратором
     if ($username === 'admin' && $password === 'Admin292020') {
         // Если пользователь является администратором, то перенаправляем его на страницу регистрации
-        header("Location: registration.html");
+        header("Location: admin.html");
         exit();
+        
     }
     
     // Подключаемся к базе данных
