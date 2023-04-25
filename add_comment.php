@@ -25,12 +25,12 @@ $comments = mysqli_fetch_all($result, MYSQLI_ASSOC);
 // ...
 
 // Если была отправлена форма удаления комментария
-if (isset($_POST['delete_comment'])) {
+if (isset($_GET['id'])) {
     // Получаем id комментария из формы
-    $comment_id = $_POST['comment_id'];
+    $comment_id = $_GET['id'];
 
     // Удаляем комментарий из базы данных
-    $stmt = mysqli_prepare($conn, 'DELETE FROM comments WHERE id = ?');
+    $stmt = mysqli_prepare($conn, 'DELETE  FROM comments WHERE id = ?');
     mysqli_stmt_bind_param($stmt, 'i', $comment_id);
     mysqli_stmt_execute($stmt);
 
@@ -78,10 +78,9 @@ if (isset($_POST['delete_comment'])) {
             <p><?= $comment['comment'] ?></p>
             <small><?= $comment['created_at'] ?></small>
             
-            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-                <input type="hidden" name="comment_id" value="<?= $comment['id'] ?>">
-                <button type="submit" name="delete_comment">Delete</button>
-            </form>
+            <?php echo '<a href="'. $_SERVER['PHP_SELF'] .'?id=' . $comment['id'] . '" >Delete</a>';?>
+
+
         </li>
         <?php endforeach; ?>
     </ul>
