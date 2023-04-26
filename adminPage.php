@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+  echo $_SESSION['admin_id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,9 +85,11 @@
                 <div class = 'input-create-profile'>
                     <button type="text" id="input" name="input" placeholder=""> UPLOAD CHANGES</button>
                 </div>
+
           </div>
         </form>
     </div>
 </div>
 </body>
 </html>
+

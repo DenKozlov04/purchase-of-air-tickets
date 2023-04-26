@@ -15,54 +15,50 @@
       <p><img src="images\thtrhrth.png"  width="60" height="30"></p>
     </div>
     <li><a href="AboutUs.html">About us</a></li>
-    <li><a href="">Avia tickets</a></li>
+    <li><a href="">Some page</a></li>
      <li><a href="reviews.html">service reviews</a></li>
      <li><a href="Html\Buy_Tickets.php">buy tickets</a></li>
      <li><a  href="autorization.html" class="custom-btn LogIn" >LOG IN</a></li> 
     <li><a href="registration.html" class="custom-btn LogIn">Sign up</a> </li>
   </ul>
- 
+
 </nav>
 <body bgcolor="#e9a2a2">
   <p class="txt1">EXPLORE THE WORLD WITH US</p>
- <div class ='search'>
-
+ <div class ='search' method="GET">
+  <a href="SearchAirlines.php" class="search-link"></a>
     <div class = 'box1-input'style="border-radius: 50px 0 0 50px;">
       <div class = 'input-data'>
-        <input type="text" id="input" name="input" placeholder=""> 
-        <label for="input-field">Enther your country:</label>
+        <input type="text" id="input" name="SearchRoute"  method="GET" placeholder="Riga-Paris" > 
+        <label for="input-field">Enther the route:</label>
       </div>
     </div>
     <div class = 'box1-input'>
       <div class = 'input-data'>
-        <input type='text' name='lastname' >
+        <input type='text' name='SearchCountry'  method="GET" placeholder="Latvia">
         <label for="input-field">Choose country:</label>
       </div>  
     </div>
     <div class = 'box1-input'>
       <div class = 'input-data'>
         <!-- <input type='text' name='parol' > -->
-        <input type="date" name="calendar">
+        <input type="date" method="GET" name="SearchArrival_date">
         <label for="input-field">Set your arrival date:</label>
       </div>  
     </div>
     <div class = 'box1-input'>
       <div class = 'input-data'>
         <!-- <input type='text' name='post'  > -->
-        <input type="date" name="calendar">
+        <input type="date" method="GET" name="SearchDeparture_date">
         <label for="input-field">Set your departure date:</label>
       </div>
     </div>
     <div class = 'box1-input' style="border-radius: 0 50px 50px 0;">
       <div class = 'input-data'>
-        <input type='text' name='parol' >
+        <input type='text' name='passenger_number' method="GET" placeholder="for exmple: 1" >
         <label for="input-field">Select passenger number:</label>
       </div>
     </div> 
-    <!-- <div class ='pict2'>
-      <p><img src="images\pln1.jpg"  width="1920" height="700" left = "10"  ></p>
-    </div> -->
-
 </div>
 <div class="gallery-grid">
   <div class="gallery-item">
@@ -174,15 +170,17 @@
 <div class="pict4"><img src="images\bgSales.png"></div>
 <footer class="footer">gdgs</footer>
  <style>
- /* .pict2{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1920px;
-    top: 120px;
-    margin: 0 auto;
-    z-index: -3;
-    box-sizing: border-box;
-  }  */
+.search-link {
+  
+  width: 100px;
+  height: 100px;
+  background-image: url('images/search.png');
+  background-size: cover;
+  text-indent: -9999px;
+}
+  ::placeholder {
+    color:#cacaca;
+   }
   .txt1{
     right: 30%;
     top:83%;

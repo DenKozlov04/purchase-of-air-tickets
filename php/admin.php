@@ -1,5 +1,5 @@
-<?php
 
+<?php
 $Airline = htmlspecialchars(filter_var(trim($_POST['Airline']),FILTER_SANITIZE_STRING));
 $airport_name = htmlspecialchars(filter_var(trim($_POST['airport_name']),FILTER_SANITIZE_STRING));
 $ITADA = htmlspecialchars(filter_var(trim($_POST['ITADA']),FILTER_SANITIZE_STRING));
@@ -51,6 +51,6 @@ if(mb_strlen($Airline) <3 || mb_strlen($Airline) > 255){
     $mysql->close();
 
     // Перенаправляем пользователя на страницу авторизации
-    header('Location:../index.html');
+    header('Location:../Html\Buy_Tickets.php');
     // ДАБВАВИТЬ КОНКРЕТНОЕ ВРЕМЯ ОТЛЕТА!!!!!!!!!!!!!!!!!!!!!
 }

@@ -57,6 +57,9 @@
 </html>
 
 <?php
+session_start();
+
+$_SESSION['admin_id'];
 // Подключение к базе данных
 $host = 'localhost';
 $user = 'root';
@@ -79,6 +82,7 @@ if (isset($_POST['delete'])) {
 // Выполнение запроса
 $result = $mysqli->query("SELECT * FROM `airports/airlines`");
 
+
 // Проверка наличия результатов
 if ($result->num_rows > 0) {
     // Вывод данных в таблицу HTML
@@ -99,25 +103,38 @@ if ($result->num_rows > 0) {
 
     // Вывод каждой строки данных
     while($row = $result->fetch_assoc()) {
-        echo "<tr>
-          <td>".$row["Airline"]."</td>
-          <td>".$row["airport_name"]."</td>
-          <td>".$row["ITADA"]."</td>
-          <td>".$row["City"]."</td>
-          <td>".$row["country"]."</td>
-          <td>".$row["T_price"]."</td>
-          <td>".$row["arrival_date"]."</td>
-          <td>".$row["departure_date"]."</td>
-          <td>".$row["arrival_time"]."</td>
-          <td>".$row["departure_time"]."</td>
-          <td>
-            <form method='POST' action='Buy_Tickets.php'>
-              <input type='hidden' name='delete' value='".$row['id']."'>
-              <button type='submit'>Delete</button>
-            </form>
-          </td>
-        </tr>";
+      echo "<tr>
+              <td>".$row["Airline"]."</td>
+              <td>".$row["airport_name"]."</td>
+              <td>".$row["ITADA"]."</td>
+              <td>".$row["City"]."</td>
+              <td>".$row["country"]."</td>
+              <td>".$row["T_price"]."</td>
+              <td>".$row["arrival_date"]."</td>
+              <td>".$row["departure_date"]."</td>
+              <td>".$row["arrival_time"]."</td>
+              <td>".$row["departure_time"]."</td>";
+    
+      if ($_SESSION['admin_id'] == 1) {
+        echo "<td>
+                <form method='POST' action='Buy_Tickets.php'>
+                  <input type='hidden' name='delete' value='".$row['id']."'>
+                  <button type='submit'>Delete</button>
+                </form>
+              </td>";
+      }
+    if ($_SESSION['admin_id'] == 2) {
+      echo "<td>
+              <form method='POST' action='purchase_checkout.php'>
+                <input type='hidden' name=''>
+                <button type='submit'>Buy</button>
+              </form>
+            </td>";
     }
+    
+    echo "</tr>";
+  }
+    
 
     echo "</table>";
 } else {

@@ -8,11 +8,21 @@ if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $con_password = md5($password."356ads34749ad9s");
-    
+
+
     // Проверяем, является ли пользователь администратором
     if ($username === 'admin' && $password === 'Admin292020') {
         // Если пользователь является администратором, то перенаправляем его на страницу регистрации
-        header("Location: admin.html");
+        header("Location: adminPage.php");
+        // $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['admin_id'] = 1;//присуждаем ID админу
+        exit();
+        
+    }
+    if ($username != 'admin' or $password != 'Admin292020') {
+
+        $_SESSION['admin_id'] = 2;//присуждаем ID админу
+        header("Location: index.html");
         exit();
         
     }
@@ -37,12 +47,12 @@ if (isset($_POST['login'])) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $hash = $row['password'];
-        // Проверяем, совпадает ли хешированный пароль из базы данных с введенным паролем
+        // Проверяем, совпадает ли пароль из базы данных с введенным паролем
         if ($con_password == $hash) {
             // Если пароль совпадает, то сохраняем данные пользователя в сессии
             $_SESSION['username'] = $username;
-            $_SESSION['id'] = $row['id'];
-            // Перенаправляем пользователя на защищенную страницу
+            $_SESSION['user_id'] = $row['user_id'];
+            // Перенаправляем пользователя на страницу
             header("Location: index.html");
             exit();
         } else {
