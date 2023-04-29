@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,26 +28,26 @@
   <p class="txt1">EXPLORE THE WORLD WITH US</p>
  <div class ='search' method="GET">
   <a href="SearchAirlines.php" class="search-link"></a>
-    <div class = 'box1-input'style="border-radius: 50px 0 0 50px;">
+    <div class = 'box1-input'style="border-radius: 50px 0 0 50px;" action="SearchAirlines.php">
       <div class = 'input-data'>
         <input type="text" id="input" name="SearchRoute"  method="GET" placeholder="Riga-Paris" > 
         <label for="input-field">Enther the route:</label>
       </div>
     </div>
-    <div class = 'box1-input'>
+    <div class = 'box1-input' action="SearchAirlines.php">
       <div class = 'input-data'>
         <input type='text' name='SearchCountry'  method="GET" placeholder="Latvia">
         <label for="input-field">Choose country:</label>
       </div>  
     </div>
-    <div class = 'box1-input'>
+    <div class = 'box1-input' action="SearchAirlines.php">
       <div class = 'input-data'>
         <!-- <input type='text' name='parol' > -->
         <input type="date" method="GET" name="SearchArrival_date">
         <label for="input-field">Set your arrival date:</label>
       </div>  
     </div>
-    <div class = 'box1-input'>
+    <div class = 'box1-input' action="SearchAirlines.php">
       <div class = 'input-data'>
         <!-- <input type='text' name='post'  > -->
         <input type="date" method="GET" name="SearchDeparture_date">
@@ -168,7 +169,6 @@
 <div class=rect1></div>
 <div class=rect2></div>
 <div class="pict4"><img src="images\bgSales.png"></div>
-<footer class="footer">gdgs</footer>
  <style>
 .search-link {
   
@@ -183,7 +183,7 @@
    }
   .txt1{
     right: 30%;
-    top:83%;
+    top:93%;
     position: relative;
     display: flex; 
     justify-content: center;
@@ -223,9 +223,9 @@
 }
 .rect2{
   right:1000%;
-  top: -269%;
+  top: -271%;
   width: 6000%;
-  height: 4.5%;
+  height: 6%;
   z-index: -3;
   background-color: #666666;
   position: relative;
@@ -411,3 +411,47 @@
 
 </html>
 
+ <?php
+// // Подключение к базе данных
+// $conn = mysqli_connect('localhost', 'root', '', 'airflightsdatabase');
+
+// // Проверка подключения
+// if (!$conn) {
+//   die("Connection failed: " . mysqli_connect_error());
+// }
+
+// // Выборка данных из базы данных
+// $sql = "SELECT * FROM products";
+// $result = mysqli_query($conn, $sql);
+
+// // Отображение данных на странице
+// if (mysqli_num_rows($result) > 0) {
+//   while($row = mysqli_fetch_assoc($result)) {
+//     echo '
+//     <div class="gallery-item">
+//       <!-- первая карточка -->
+//       <div class="grid-item__inner">
+//         <img src=". $row["image"] ." class="grid-item__img" width="400" height="400" >
+//         <div class="place1">
+//           <span>"'. $row["departure_city"] .'" -</span>
+//         </div>
+//         <div class="place2">
+//           <span>"'. $row["departure_city"] .'"</span>
+//         </div>
+//         <div class="grid-item_title">
+//           <div>
+//               <span class="price">From "'. $row["price"] .'"⁰⁰€</span>
+//           </div>
+//             <button class="Buy" onclick="window.location.href = \'registration.html\'">Buy tickets</button>
+//         </div>
+//       </div>';
+    
+//   }
+// } else {
+//   echo "No products found";
+// }
+
+// // Закрытие подключения к базе данных
+// mysqli_close($conn);
+
+?>

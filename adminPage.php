@@ -90,6 +90,30 @@ session_start();
         </form>
     </div>
 </div>
+
 </body>
 </html>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление города</title>
+</head>
+<body>
+    <form action="Html\addCard.php" method="POST" enctype="multipart/form-data">
+        <label for="city-name">Название города:</label>
+        <input type="text" id="city-name" name="city">
+
+        <label for="price">Цена:</label>
+        <input type="number" id="price" name="price">
+
+        <label for="image">Изображение:</label>
+        <input type="file" id="image" name="image">
+
+        <input type="submit" value="Добавить">
+    </form>
+</body>
+</html>

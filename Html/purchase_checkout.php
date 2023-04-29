@@ -7,6 +7,11 @@
     <title>purchase checkout</title>
 </head>
 <body>
-    
+    <div class = 'pay'>
+        <p class="message">pay?<a href="pay.php">pay</a></p>
+    </div>
 </body>
+<style>
+    
+</style>
 </html>

@@ -25,28 +25,28 @@ if(mb_strlen($login) <5 || mb_strlen($login) > 90){
     // Подключаемся к базе данных
     $mysql = new mysqli('localhost','root','','airflightsdatabase');
 
-    // Проверяем, существует ли уже пользователь с таким же именем
+    // pārbaudījam, vai lietotājs ar tādu pašu nosaukumu jau eksistē
     $result = $mysql->query("SELECT user_id FROM users WHERE username='$login'");
     if($result->num_rows>0){
         echo "<script>alert(\"This username already exists\");</script>";
         exit();
     }
 
-    // Проверяем, существует ли уже пользователь с таким же email
+    // pārbaudījam, vai lietotājs ar tādu pašu e-pastu jau eksistē
     $result = $mysql->query("SELECT user_id FROM users WHERE email='$email'");
     if($result->num_rows>0){
         echo "<script>alert(\"This email already exists\");</script>";
         exit();
     }
 
-    // Проверяем, существует ли уже пользователь с таким же телефоном
+    // pārbaudījam, vai lietotājs ar tādu pašu telefons numuru jau eksistē
     $result = $mysql->query("SELECT user_id FROM users WHERE phone='$phone'");
     if($result->num_rows>0){
         echo "<script>alert(\"This phone already exists\");</script>";
         exit();
     }
 
-    // Добавляем пользователя в базу данных
+    // pievienojam lietotājus datubazē
     $mysql->query("INSERT INTO `users` (`username`, `email`, `phone`, `password`, `created_at`) 
         VALUES('$login', '$email', '$phone', '$con_password', now() )");
 

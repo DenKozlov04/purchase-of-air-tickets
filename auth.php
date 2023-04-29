@@ -53,7 +53,7 @@ if (isset($_POST['login'])) {
             $_SESSION['username'] = $username;
             $_SESSION['user_id'] = $row['user_id'];
             // Перенаправляем пользователя на страницу
-            header("Location: index.html");
+            header("Location: index.php");
             exit();
         } else {
             // Если пароль не совпадает, то выводим ошибку

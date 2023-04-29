@@ -73,21 +73,23 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-// Удаление данных из таблицы и базы данных
+// Datu dzēšana no tabulas un datubāzes
 if (isset($_POST['delete'])) {
     $id = $_POST['delete'];
     $mysqli->query("DELETE FROM `airports/airlines` WHERE `id`=$id") or die($mysqli->error());
 }
 
+
+
 // Выполнение запроса
 $result = $mysqli->query("SELECT * FROM `airports/airlines`");
-
 
 // Проверка наличия результатов
 if ($result->num_rows > 0) {
     // Вывод данных в таблицу HTML
     echo "<table>
         <tr>
+          <th>ID</th>
           <th>Airline</th>
           <th>Airport Name</th>
           <th>ITADA Code</th>
@@ -98,12 +100,19 @@ if ($result->num_rows > 0) {
           <th>Departure Date</th>
           <th>Arrival time</th>
           <th>Departure time</th>
-          <th>Action</th>
-        </tr>";
+          <th>Buy</th>
+          <th>order ticket</th>";
+          
+    if ($_SESSION['admin_id'] == 1) {
+        echo "<th>Action</th>";
+    }
+    
+    echo "</tr>";
 
     // Вывод каждой строки данных
     while($row = $result->fetch_assoc()) {
       echo "<tr>
+              <td>".$row["id"]."</td>
               <td>".$row["Airline"]."</td>
               <td>".$row["airport_name"]."</td>
               <td>".$row["ITADA"]."</td>
@@ -115,25 +124,47 @@ if ($result->num_rows > 0) {
               <td>".$row["arrival_time"]."</td>
               <td>".$row["departure_time"]."</td>";
     
-      if ($_SESSION['admin_id'] == 1) {
+              if ($_SESSION['admin_id'] == 1) {
+                echo "<td>
+                        <form method='POST' action='edit_record.php'>
+                          <input type='hidden' name='edit' value='".$row['id']."'>
+                          <button type='submit'>Edit</button>
+                        </form>
+                        <form method='POST' action='Buy_Tickets.php'>
+                          <input type='hidden' name='delete' value='".$row['id']."'>
+                          <button type='submit'>Delete</button>
+                        </form>
+                      </td>";
+            }
+      if ($_SESSION['admin_id'] == 2) {
         echo "<td>
-                <form method='POST' action='Buy_Tickets.php'>
-                  <input type='hidden' name='delete' value='".$row['id']."'>
-                  <button type='submit'>Delete</button>
+                <form method='POST' action='purchase_checkout.php'>
+                  <input type='hidden' name=''>
+                  <button type='submit'>Buy</button>
                 </form>
               </td>";
+              echo "<td>
+                <form method='POST' action='Booking.php'>
+                <input type='hidden' name='Order'".$row['id'].">
+                <input type='hidden' name='airline_id' value='".$row['id']."'>
+                <input type='hidden' name='Airline' value='".$row['Airline']."'>
+                <input type='hidden' name='airport_name' value='".$row['airport_name']."'>
+                <input type='hidden' name='ITADA' value='".$row['ITADA']."'>
+                <input type='hidden' name='City' value='".$row['City']."'>
+                <input type='hidden' name='T_price' value='".$row['T_price']."'>
+                <input type='hidden' name='arrival_date' value='".$row['arrival_date']."'>
+                <input type='hidden' name='departure_date' value='".$row['departure_date']."'>
+                <input type='hidden' name='arrival_time' value='".$row['arrival_time']."'>
+                <input type='hidden' name='departure_time' value='".$row['departure_time']."'>
+                  <button type='submit'>Order</button>
+                </form>
+             </td>";
+
       }
-    if ($_SESSION['admin_id'] == 2) {
-      echo "<td>
-              <form method='POST' action='purchase_checkout.php'>
-                <input type='hidden' name=''>
-                <button type='submit'>Buy</button>
-              </form>
-            </td>";
-    }
+
     
-    echo "</tr>";
-  }
+      echo "</tr>";
+    }
     
 
     echo "</table>";
@@ -142,6 +173,3 @@ if ($result->num_rows > 0) {
 }
 
 // Закрытие соединения с базой данных
-$mysqli->close();
-?>
-

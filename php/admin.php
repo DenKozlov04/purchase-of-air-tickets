@@ -43,14 +43,18 @@ if(mb_strlen($Airline) <3 || mb_strlen($Airline) > 255){
     // Подключаемся к базе данных
     $mysql = new mysqli('localhost','root','','airflightsdatabase');
 
-    // Добавляем пользователя в базу данных
-    $mysql->query("INSERT INTO `airports/airlines` (`Airline`, `airport_name`, `ITADA`, `City`, `country`,`T_price`,`departure_date`,`arrival_date`,`arrival_time`,`departure_time`,`created_at`) 
-        VALUES('$Airline', '$airport_name', '$ITADA', '$City','$country','$T_price','$departure_date','$arrival_date','$arrival_time','$departure_time', now() )");
+    //Pievienojam lidojumu nosaukumu, ITADA kodu,pilsētu, valsti,biļetes cēnu, ierašanās un izbraukšanas datumu un laiku datubāzei.
+    $mysql->query("INSERT INTO `airports/airlines` (`Airline`, `airport_name`, `ITADA`, 
+    `City`, `country`,`T_price`,`departure_date`,`arrival_date`,
+    `arrival_time`,`departure_time`,`created_at`) 
+        VALUES('$Airline', '$airport_name', '$ITADA', '$City',
+        '$country','$T_price','$departure_date','$arrival_date',
+        '$arrival_time','$departure_time', now() )");
 
     // Закрываем соединение с базой данных
     $mysql->close();
 
     // Перенаправляем пользователя на страницу авторизации
     header('Location:../Html\Buy_Tickets.php');
-    // ДАБВАВИТЬ КОНКРЕТНОЕ ВРЕМЯ ОТЛЕТА!!!!!!!!!!!!!!!!!!!!!
+
 }
