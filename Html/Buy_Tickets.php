@@ -60,7 +60,6 @@
 session_start();
 
 $_SESSION['admin_id'];
-// Подключение к базе данных
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -68,7 +67,7 @@ $database = 'airflightsdatabase';
 
 $mysqli = new mysqli($host, $user, $password, $database);
 
-// Проверка соединения
+// parbudījam pieslēgšanu
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
@@ -79,14 +78,9 @@ if (isset($_POST['delete'])) {
     $mysqli->query("DELETE FROM `airports/airlines` WHERE `id`=$id") or die($mysqli->error());
 }
 
-
-
-// Выполнение запроса
+// izpildījam pieprasījumu
 $result = $mysqli->query("SELECT * FROM `airports/airlines`");
-
-// Проверка наличия результатов
 if ($result->num_rows > 0) {
-    // Вывод данных в таблицу HTML
     echo "<table>
         <tr>
           <th>ID</th>
@@ -109,7 +103,6 @@ if ($result->num_rows > 0) {
     
     echo "</tr>";
 
-    // Вывод каждой строки данных
     while($row = $result->fetch_assoc()) {
       echo "<tr>
               <td>".$row["id"]."</td>
@@ -137,6 +130,9 @@ if ($result->num_rows > 0) {
                       </td>";
             }
       if ($_SESSION['admin_id'] == 2) {
+
+
+        
         echo "<td>
                 <form method='POST' action='purchase_checkout.php'>
                   <input type='hidden' name=''>
@@ -171,5 +167,4 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-
-// Закрытие соединения с базой данных
+$mysqli->close();

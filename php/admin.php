@@ -40,7 +40,7 @@ if(mb_strlen($Airline) <3 || mb_strlen($Airline) > 255){
     exit();
 } else {
     
-    // Подключаемся к базе данных
+    // pieslezējamies pie datu bāzes
     $mysql = new mysqli('localhost','root','','airflightsdatabase');
 
     //Pievienojam lidojumu nosaukumu, ITADA kodu,pilsētu, valsti,biļetes cēnu, ierašanās un izbraukšanas datumu un laiku datubāzei.
@@ -51,10 +51,10 @@ if(mb_strlen($Airline) <3 || mb_strlen($Airline) > 255){
         '$country','$T_price','$departure_date','$arrival_date',
         '$arrival_time','$departure_time', now() )");
 
-    // Закрываем соединение с базой данных
+    // aizveram pieslēgšanu ar datu bāzi
     $mysql->close();
 
-    // Перенаправляем пользователя на страницу авторизации
+
     header('Location:../Html\Buy_Tickets.php');
 
 }

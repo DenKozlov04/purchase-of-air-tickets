@@ -212,7 +212,7 @@
   }
 .pict3{
   right:355%;
-  top:-110%;
+  top:-107%;
   position: relative;
   display: flex; 
   justify-content: center;
@@ -234,7 +234,7 @@
   justify-content: space-evenly;
 }
 .rect1{
-  top: -110%;
+  top: -109%;
   z-index: -3;
   bottom: 20px;
   position: relative;

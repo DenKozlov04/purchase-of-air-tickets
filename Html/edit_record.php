@@ -2,7 +2,6 @@
 session_start();
 
 $_SESSION['admin_id'];
-// Подключение к базе данных
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -10,12 +9,12 @@ $database = 'airflightsdatabase';
 
 $mysqli = new mysqli($host, $user, $password, $database);
 
-// Проверка соединения
+// parbaudījam pieslēgumu
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-// Обновление данных в таблице и базе данных
+// datus atjaunināšana datubazē
 if (isset($_POST['update'])) {
     $id = $_POST['update'];
     $airline = $_POST['airline'];
@@ -29,7 +28,7 @@ if (isset($_POST['update'])) {
     $arrival_time = $_POST['arrival_time'];
     $departure_time = $_POST['departure_time'];
     
-   // Datu atjaunināšana tabulā un datubāzē
+   // Datu atjaunināšana tabulā un datubāzē ar sql pieprasījumu
     $mysqli->query("UPDATE `airports/airlines` SET `Airline`='$airline', `airport_name`='$airport_name', 
     `ITADA`='$itada', `City`='$city', `country`='$country', `T_price`='$t_price', `arrival_date`='$arrival_date', 
     `departure_date`='$departure_date', `arrival_time`='$arrival_time',

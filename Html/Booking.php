@@ -17,6 +17,9 @@ $departure_time = $_POST['departure_time'];
 
   $random_data = $random_number . $random_letter;// выводит, например, "F37"
 
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
