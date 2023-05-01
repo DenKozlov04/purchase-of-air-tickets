@@ -54,6 +54,6 @@ if(mb_strlen($login) <5 || mb_strlen($login) > 90){
     $mysql->close();
 
     // Перенаправляем пользователя на страницу авторизации
-    header('Location:../index.html');
+    header('Location:../index.php');
 }
 

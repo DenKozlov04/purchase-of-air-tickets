@@ -142,6 +142,7 @@ if ($result->num_rows > 0) {
               echo "<td>
                 <form method='POST' action='Booking.php'>
                 <input type='hidden' name='Order'".$row['id'].">
+
                 <input type='hidden' name='airline_id' value='".$row['id']."'>
                 <input type='hidden' name='Airline' value='".$row['Airline']."'>
                 <input type='hidden' name='airport_name' value='".$row['airport_name']."'>

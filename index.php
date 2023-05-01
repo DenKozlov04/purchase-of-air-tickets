@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
 </head>
 
-
 <nav>
   <ul >
     <div class ='pict1'>

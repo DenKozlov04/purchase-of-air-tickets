@@ -14,16 +14,6 @@ if (isset($_POST['login'])) {
         exit();
         
     }
-    if ($username != 'admin' or $password != 'Admin292020') {
-
-        $sql = "SELECT user_id FROM users";
-        $_SESSION['user_id'] = $row["user_id"];
-
-        $_SESSION['admin_id'] = 2;
-        header("Location: index.php");
-        exit();
-        
-    }
     
     $servername = "localhost";
     $dbusername = "root";
@@ -41,7 +31,14 @@ if (isset($_POST['login'])) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $hash = $row['password'];
+        
+        if ($username != 'admin' or $password != 'Admin292020') {
 
+            $_SESSION['admin_id'] = 2;
+            header("Location: index.php");
+            exit();
+            
+        }
         if ($con_password == $hash) {
             $_SESSION['username'] = $username;
             $_SESSION['user_id'] = $row['user_id'];

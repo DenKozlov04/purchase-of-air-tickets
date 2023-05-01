@@ -1,5 +1,27 @@
+
 <?php
 session_start();
+
+    
+$mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
+
+if ($mysqli->connect_error) {
+  die("Connection failed: " . $mysqli->connect_error);
+}
+
+$airline_id = $_POST['airline_id'];
+
+$result = $mysqli -> query("SELECT `ticket_id` FROM `tickets` WHERE `airlines_id` = '$airline_id'");
+
+if ($result -> num_rows > 0) {
+  while ($row = $result -> fetch_assoc()) {
+    echo  $row["ticket_id"] ;
+}
+  } else {
+   echo "ERROR";
+}
+
+$mysqli -> close();
 
 $airline_id = $_POST['airline_id'];
 $Airline = $_POST['Airline'];
@@ -17,7 +39,11 @@ $departure_time = $_POST['departure_time'];
 
   $random_data = $random_number . $random_letter;// выводит, например, "F37"
 
-
+  // $sql = ("SELECT `airports/airlines`.`id`, `tickets`.`ticket_id`, `tickets`.`airline_id`
+  // FROM `airports/airlines`
+  // INNER JOIN `tickets`
+  // ON `airports/airlines`.`id` = `tickets`.`airline_id`");
+  // $tickets = ['tickets'];
 
 
 ?>
@@ -33,6 +59,7 @@ $departure_time = $_POST['departure_time'];
 <table>
   <tr>
     <th>Flight ID</th>
+    <th>Ticket ID</th>
     <th>Departure City</th>
     <th>Departure Airport</th>
     <th>Arrival City</th>
@@ -45,6 +72,8 @@ $departure_time = $_POST['departure_time'];
   </tr>
   <tr>
     <td><?php echo $airline_id;?></td>
+    <td><?php 
+    ?></td>
     <td>Riga</td>
     <td>Riga airport</td>
     <td><?php echo $City;?></td>
