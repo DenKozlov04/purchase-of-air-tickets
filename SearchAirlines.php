@@ -2,15 +2,17 @@
 $conn = mysqli_connect('localhost', 'root', '', 'airflightsdatabase');
 
 // Получаем поисковые запросы из формы
-$searchRoute = htmlspecialchars(trim($_GET['SearchRoute'] ?? ''));
-$searchCountry = htmlspecialchars(trim($_GET['SearchCountry'] ?? ''));
-$searchArrivalDate = htmlspecialchars(trim($_GET['SearchArrival_date'] ?? ''));
-$searchDepartureDate = htmlspecialchars(trim($_GET['SearchDeparture_date'] ?? ''));
-// $searchPassengerNumber = htmlspecialchars(trim($_GET['passenger_number'] ?? ''));
+$searchRoute = htmlspecialchars(trim($_POST['SearchRoute'] ?? ''));
+$searchCountry = htmlspecialchars(trim($_POST['SearchCountry'] ?? ''));
+$searchArrivalDate = htmlspecialchars(trim($_POST['SearchArrival_date'] ?? ''));
+$searchDepartureDate = htmlspecialchars(trim($_POST['SearchDeparture_date'] ?? ''));
+$searchPassengerNumber = htmlspecialchars(trim($_POST['passenger_number'] ?? ''));
+
 
 // Meklējam datus datubāzē
-$sql = "SELECT * FROM `airports/airlines` WHERE Airline = '%$searchRoute%' OR country = '%$searchCountry%' 
-OR arrival_date = '%$searchArrivalDate%' OR departure_date = '%$searchDepartureDate%'";
+$sql = "SELECT * FROM `airports/airlines` WHERE Airline = '$searchRoute' AND country = '$searchCountry' 
+AND arrival_date Like '$searchArrivalDate' AND departure_date Like '$searchDepartureDate'";
+
 
 $result = mysqli_query($conn, $sql);
 

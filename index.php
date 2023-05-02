@@ -29,8 +29,8 @@
 <body bgcolor="#e9a2a2">
   <p class="txt1">EXPLORE THE WORLD WITH US</p>
   
- <div class ='search' method="GET">
-  <a href="SearchAirlines.php" class="search-link"></a>
+ <div class ='search' method="GET" action="SearchAirlines.php">
+  <a href="SearchAirlines.php"  action="SearchAirlines.php" class="search-link" name="search_button"></a>
     <div class = 'box1-input'style="border-radius: 50px 0 0 50px;" action="SearchAirlines.php">
       <div class = 'input-data'>
         <input type="text" id="input" name="SearchRoute"  method="GET" placeholder="Riga-Paris" > 
@@ -46,7 +46,7 @@
     <div class = 'box1-input' action="SearchAirlines.php">
       <div class = 'input-data'>
         <!-- <input type='text' name='parol' > -->
-        <input type="date" method="GET" name="SearchArrival_date">
+        <input type="date" id="date" method="GET" name="SearchArrival_date">
         <label for="input-field">Set your arrival date:</label>
       </div>  
     </div>
@@ -413,48 +413,3 @@
 
 
 </html>
-
- <?php
-// // Подключение к базе данных
-// $conn = mysqli_connect('localhost', 'root', '', 'airflightsdatabase');
-
-// // Проверка подключения
-// if (!$conn) {
-//   die("Connection failed: " . mysqli_connect_error());
-// }
-
-// // Выборка данных из базы данных
-// $sql = "SELECT * FROM products";
-// $result = mysqli_query($conn, $sql);
-
-// // Отображение данных на странице
-// if (mysqli_num_rows($result) > 0) {
-//   while($row = mysqli_fetch_assoc($result)) {
-//     echo '
-//     <div class="gallery-item">
-//       <!-- первая карточка -->
-//       <div class="grid-item__inner">
-//         <img src=". $row["image"] ." class="grid-item__img" width="400" height="400" >
-//         <div class="place1">
-//           <span>"'. $row["departure_city"] .'" -</span>
-//         </div>
-//         <div class="place2">
-//           <span>"'. $row["departure_city"] .'"</span>
-//         </div>
-//         <div class="grid-item_title">
-//           <div>
-//               <span class="price">From "'. $row["price"] .'"⁰⁰€</span>
-//           </div>
-//             <button class="Buy" onclick="window.location.href = \'registration.html\'">Buy tickets</button>
-//         </div>
-//       </div>';
-    
-//   }
-// } else {
-//   echo "No products found";
-// }
-
-// // Закрытие подключения к базе данных
-// mysqli_close($conn);
-
-?>

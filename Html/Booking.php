@@ -57,6 +57,10 @@ $seat_number = $random_data;
 
 // Добавляем данные в таблицу booking
 $sql = "INSERT INTO `bookings` (`user_id`, `flight_id`, `booking_date`, `seat_number`) VALUES ('$user_id', '$flight_id', '$booking_date', '$seat_number')";
+
+// Добавляем данные в таблицу tickets
+$sql = "INSERT INTO `tickets` (`user_id`, `airlines_id`) VALUES ('$user_id', '$flight_id')";
+
 if ($mysqli->query($sql) === TRUE) {
   echo "Booking created successfully";
 } else {
@@ -64,7 +68,6 @@ if ($mysqli->query($sql) === TRUE) {
 }
 $mysqli -> close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,14 +101,14 @@ $mysqli -> close();
     <td><?php echo $airport_name;?></td>
     <td><?php echo $departure_date;;?></td>
     <td><?php echo $departure_time;?></td>
-    <td>John Doe</td>
-    <td>john.doe@example.com</td>
+    <td><?php echo $_SESSION['username']?></td>
+    <td><?php echo $_SESSION['email']?></td>
     <td><?php echo $random_data;?></td>
   </tr>
 
   <td>This is your ordered flight, enjoy ;)</td>
 </table>
-<li><a href="../index.php" action="SubmitInfo_php" name="order">Order Ticket</a></li>
+<li><a href="../index.php" action="SubmitInfo.php" name="order">Order Ticket</a></li>
 
 <li><a href="pay.php">PAY!!!</a></li>
 <style>
