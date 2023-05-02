@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
 </head>
-
 <nav>
   <ul >
     <div class ='pict1'>
@@ -21,10 +20,15 @@
      <li><a  href="autorization.html" class="custom-btn LogIn" >LOG IN</a></li> 
     <li><a href="registration.html" class="custom-btn LogIn">Sign up</a> </li>
   </ul>
+  <div class ='pict5'>
+      <p><a href="user_info.php"><img src="images\user_foto.png"  width="100" height="100"></a></p>
+  </div>
+
 
 </nav>
 <body bgcolor="#e9a2a2">
   <p class="txt1">EXPLORE THE WORLD WITH US</p>
+  
  <div class ='search' method="GET">
   <a href="SearchAirlines.php" class="search-link"></a>
     <div class = 'box1-input'style="border-radius: 50px 0 0 50px;" action="SearchAirlines.php">
@@ -221,10 +225,10 @@
   height: 1042px;
 }
 .rect2{
-  right:1000%;
-  top: -271%;
-  width: 6000%;
-  height: 6%;
+  right:700%;
+  top: -273%;
+  width: 1200%;
+  height: 7%;
   z-index: -3;
   background-color: #666666;
   position: relative;

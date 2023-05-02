@@ -58,7 +58,7 @@
 
 <?php
 session_start();
-
+ $_SESSION['user_id'];
 $_SESSION['admin_id'];
 $host = 'localhost';
 $user = 'root';
@@ -97,7 +97,7 @@ if ($result->num_rows > 0) {
           <th>Buy</th>
           <th>order ticket</th>";
           
-    if ($_SESSION['admin_id'] == 1) {
+    if ($_SESSION['admin_id'] != 1) {
         echo "<th>Action</th>";
     }
     
@@ -129,35 +129,32 @@ if ($result->num_rows > 0) {
                         </form>
                       </td>";
             }
-      if ($_SESSION['admin_id'] == 2) {
-
-
-        
-        echo "<td>
-                <form method='POST' action='purchase_checkout.php'>
-                  <input type='hidden' name=''>
-                  <button type='submit'>Buy</button>
-                </form>
-              </td>";
+            if ($_SESSION['admin_id'] == 0) {
+              // кнопки "buy" и "order" для пользователей с ID = 2
               echo "<td>
-                <form method='POST' action='Booking.php'>
-                <input type='hidden' name='Order'".$row['id'].">
-
-                <input type='hidden' name='airline_id' value='".$row['id']."'>
-                <input type='hidden' name='Airline' value='".$row['Airline']."'>
-                <input type='hidden' name='airport_name' value='".$row['airport_name']."'>
-                <input type='hidden' name='ITADA' value='".$row['ITADA']."'>
-                <input type='hidden' name='City' value='".$row['City']."'>
-                <input type='hidden' name='T_price' value='".$row['T_price']."'>
-                <input type='hidden' name='arrival_date' value='".$row['arrival_date']."'>
-                <input type='hidden' name='departure_date' value='".$row['departure_date']."'>
-                <input type='hidden' name='arrival_time' value='".$row['arrival_time']."'>
-                <input type='hidden' name='departure_time' value='".$row['departure_time']."'>
-                  <button type='submit'>Order</button>
-                </form>
-             </td>";
-
-      }
+                      <form method='POST' action='purchase_checkout.php'>
+                        <input type='hidden' name=''>
+                        <button type='submit'>Buy</button>
+                      </form>
+                    </td>";
+              echo "<td>
+                      <form method='POST' action='Booking.php'>
+                        <input type='hidden' name='Order'".$row['id'].">
+                        <input type='hidden' name='airline_id' value='".$row['id']."'>
+                        <input type='hidden' name='Airline' value='".$row['Airline']."'>
+                        <input type='hidden' name='airport_name' value='".$row['airport_name']."'>
+                        <input type='hidden' name='ITADA' value='".$row['ITADA']."'>
+                        <input type='hidden' name='City' value='".$row['City']."'>
+                        <input type='hidden' name='T_price' value='".$row['T_price']."'>
+                        <input type='hidden' name='arrival_date' value='".$row['arrival_date']."'>
+                        <input type='hidden' name='departure_date' value='".$row['departure_date']."'>
+                        <input type='hidden' name='arrival_time' value='".$row['arrival_time']."'>
+                        <input type='hidden' name='departure_time' value='".$row['departure_time']."'>
+                        <button type='submit'>Order</button>
+                      </form>
+                    </td>";
+            }
+            
 
     
       echo "</tr>";

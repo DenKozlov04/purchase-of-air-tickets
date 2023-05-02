@@ -2,7 +2,11 @@
 <?php
 session_start();
 
-    
+echo "<h1>Welcome, {$_SESSION['username']} , do you want to order ticket?</h1>";
+echo "<h1>Your user ID is {$_SESSION['user_id']}</h1>";
+echo "<p>Your email is {$_SESSION['email']} .Don't forget it</p>";
+
+
 $mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
 
 if ($mysqli->connect_error) {
@@ -21,7 +25,7 @@ if ($result -> num_rows > 0) {
    echo "ERROR";
 }
 
-$mysqli -> close();
+
 
 $airline_id = $_POST['airline_id'];
 $Airline = $_POST['Airline'];
@@ -44,9 +48,23 @@ $departure_time = $_POST['departure_time'];
   // INNER JOIN `tickets`
   // ON `airports/airlines`.`id` = `tickets`.`airline_id`");
   // $tickets = ['tickets'];
+// Получаем данные из сессии и POST-запроса
 
+$user_id = $_SESSION['user_id'];
+$flight_id = $_POST['airline_id'];
+$booking_date = date('Y-m-d H:i:s');
+$seat_number = $random_data;
 
+// Добавляем данные в таблицу booking
+$sql = "INSERT INTO `bookings` (`user_id`, `flight_id`, `booking_date`, `seat_number`) VALUES ('$user_id', '$flight_id', '$booking_date', '$seat_number')";
+if ($mysqli->query($sql) === TRUE) {
+  echo "Booking created successfully";
+} else {
+  echo "Error creating booking: " . $mysqli->error;
+}
+$mysqli -> close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +74,7 @@ $departure_time = $_POST['departure_time'];
     <title>Booking</title>
 </head>
 <body>
-<table>
+<table action="SubmitInfo_php">
   <tr>
     <th>Flight ID</th>
     <th>Ticket ID</th>
@@ -87,6 +105,8 @@ $departure_time = $_POST['departure_time'];
 
   <td>This is your ordered flight, enjoy ;)</td>
 </table>
+<li><a href="../index.php" action="SubmitInfo_php" name="order">Order Ticket</a></li>
+
 <li><a href="pay.php">PAY!!!</a></li>
 <style>
     table {
