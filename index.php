@@ -30,7 +30,7 @@
   <p class="txt1">EXPLORE THE WORLD WITH US</p>
   
  <div class ='search' method="GET" action="SearchAirlines.php">
-  <a href="SearchAirlines.php"  action="SearchAirlines.php" class="search-link" name="search_button"></a>
+  <a href="SearchAirlines.php"  action="SearchAirlines.php"class="search-link" name="search_button"></a>
     <div class = 'box1-input'style="border-radius: 50px 0 0 50px;" action="SearchAirlines.php">
       <div class = 'input-data'>
         <input type="text" id="input" name="SearchRoute"  method="GET" placeholder="Riga-Paris" > 

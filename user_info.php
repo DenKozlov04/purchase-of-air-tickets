@@ -17,12 +17,23 @@
         INNER JOIN users ON bookings.user_id = users.user_id
         WHERE bookings.user_id = {$_SESSION['user_id']}";
     
+    // Datu dzēšana no tabulas un datubāzes
+    if (isset($_POST['delete'])) {
+        $id = $_POST['delete'];
+        $mysqli->query("DELETE FROM `bookings` WHERE `user_id`= {$_SESSION['user_id']}") or die($mysqli->error());
+
+    }
+
     $result = $mysqli->query($sql);
     
     if ($result->num_rows > 0) {
       // Выводим данные из таблицы
       while($row = $result->fetch_assoc()) {
         echo "Booking ID: " . $row["booking_id"]. " - User ID: " . $row["user_id"]. " - Flight ID: " . $row["flight_id"]. " - Booking Date: " . $row["booking_date"]. " - Seat Number: " . $row["seat_number"]. "<br>";
+        echo "<form method='POST' action='user_info.php'>
+                <input type='hidden' name='delete' value='".$row["user_id"]."'>
+                <button type='submit'>Denie</button>
+              </form>";
       }
     } else {
         echo "No bookings found, add booking: <li><a href='Html\Buy_Tickets.php'>ADD</a></li>";
@@ -31,4 +42,4 @@
     
     $mysqli->close();
     ?>
-    
+

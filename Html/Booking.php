@@ -58,14 +58,15 @@ $seat_number = $random_data;
 // Добавляем данные в таблицу booking
 $sql = "INSERT INTO `bookings` (`user_id`, `flight_id`, `booking_date`, `seat_number`) VALUES ('$user_id', '$flight_id', '$booking_date', '$seat_number')";
 
-// Добавляем данные в таблицу tickets
-$sql = "INSERT INTO `tickets` (`user_id`, `airlines_id`) VALUES ('$user_id', '$flight_id')";
-
 if ($mysqli->query($sql) === TRUE) {
   echo "Booking created successfully";
 } else {
   echo "Error creating booking: " . $mysqli->error;
 }
+
+// Добавляем данные в таблицу tickets
+$sql = "INSERT INTO `tickets` (`user_id`, `flight_id`) VALUES ('$user_id', '$flight_id')";
+
 $mysqli -> close();
 ?>
 <!DOCTYPE html>
